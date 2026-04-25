@@ -573,6 +573,50 @@
       margin-top: 0.65rem;
     }
 
+    .support-block {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: var(--radius-sm);
+      background: #fff;
+      color: var(--text);
+    }
+
+    .support-block h3 {
+      margin-bottom: 0.6rem;
+    }
+
+    .support-logos {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin: 0.8rem 0 0.9rem;
+    }
+
+    .support-logos img {
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .support-logos .eu-logo {
+      max-height: 56px;
+    }
+
+    .support-logos .cost-logo {
+      max-height: 52px;
+    }
+
+    .support-block p {
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .footer-card .support-block a {
+      color: var(--accent-strong);
+      font-weight: 700;
+    }
+
     .footer-card a {
       color: #b6f0cd;
     }
@@ -673,6 +717,14 @@
       .news-grid,
       .grants-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .support-logos .eu-logo {
+        max-height: 64px;
+      }
+
+      .support-logos .cost-logo {
+        max-height: 58px;
       }
     }
 
@@ -1003,6 +1055,14 @@
           <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSexPbKq2R8rAS2THvEBipUlwFPVa8PmKdDtzTh7r1X4GU47Fw/viewform">Application Form</a></li>
         </ul>
         <p><strong>Event Dates</strong>: June 8-9, 2026</p>
+        <section class="support-block" aria-labelledby="acknowledgment-heading">
+          <h3 id="acknowledgment-heading">Acknowledgment</h3>
+          <div class="support-logos" aria-label="Funding logos">
+            <img class="eu-logo" src="assets/eu-logo.svg" alt="Funded by the European Union logo">
+            <img class="cost-logo" src="assets/cost-logo.webp" alt="COST logo">
+          </div>
+          <p>This workshop is organized upon work from the GOBLIN COST Action: CA23147 – Global Network on Large-Scale, Cross-domain and Multilingual Open Knowledge Graphs (CA23147), supported by COST (European Cooperation in Science and Technology). <a href="https://www.cost.eu">https://www.cost.eu</a></p>
+        </section>
       </div>
     </div>
   </footer>
