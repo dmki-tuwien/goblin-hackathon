@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hackathon on Metadata and Provenance for Knowledge Graphs</title>
+  <title>Venue &amp; Accommodation | Hackathon on Metadata and Provenance for Knowledge Graphs</title>
   <style>
     :root {
       --bg: #f5f7f4;
@@ -226,7 +226,8 @@
         transform 160ms ease;
     }
 
-    .nav-list a:hover {
+    .nav-list a:hover,
+    .nav-list a[aria-current="page"] {
       background: var(--surface);
       border-color: var(--line);
       color: var(--text);
@@ -362,21 +363,6 @@
       font-weight: 600;
     }
 
-    .meta-inline {
-      margin: 0.6rem 0 0;
-      padding: 0.8rem;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      background: var(--surface);
-    }
-
-    .meta-inline p {
-      margin: 0;
-      font-weight: 600;
-      line-height: 1.4;
-      overflow-wrap: anywhere;
-    }
-
     main {
       display: block;
     }
@@ -451,10 +437,6 @@
       font-size: 0.87rem;
     }
 
-    .card .meta + p {
-      margin-top: 0.55rem;
-    }
-
     .prose p {
       margin: 0;
     }
@@ -464,8 +446,7 @@
     }
 
     .prose ul,
-    .card ul,
-    .card ol {
+    .card ul {
       margin: 0.8rem 0 0;
       padding-left: 1.15rem;
     }
@@ -473,31 +454,6 @@
     .prose li + li,
     .card li + li {
       margin-top: 0.45rem;
-    }
-
-    .objective-list {
-      margin: 0;
-      padding-left: 1.15rem;
-      display: grid;
-      gap: 0.55rem;
-    }
-
-    .objective-list li {
-      padding-left: 0.1rem;
-    }
-
-    .news-grid .card,
-    .events-grid .card,
-    .grants-grid .card {
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-    }
-
-    .news-grid .card p,
-    .events-grid .card p,
-    .grants-grid .card p {
-      margin: 0;
     }
 
     .chip-row {
@@ -521,19 +477,6 @@
       transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
     }
 
-    .callout {
-      margin-top: 0.9rem;
-      padding: 1rem;
-      border-radius: var(--radius);
-      border: 1px solid rgba(20, 108, 67, 0.18);
-      background: linear-gradient(180deg, rgba(20, 108, 67, 0.05), rgba(20, 108, 67, 0.02));
-      transition: transform 180ms ease, box-shadow 180ms ease;
-    }
-
-    .callout h3 {
-      margin-bottom: 0.35rem;
-    }
-
     .address-card address {
       margin: 0;
       font-style: normal;
@@ -552,6 +495,81 @@
       margin: 0;
       line-height: 1.4;
       overflow-wrap: anywhere;
+    }
+
+    .travel-grid .card,
+    .transport-grid .card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .travel-grid .card p,
+    .transport-grid .card p {
+      margin: 0;
+    }
+
+    .hotel-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hotel-card {
+      display: grid;
+      gap: 0.9rem;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .hotel-media {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      background: var(--surface-soft);
+      overflow: hidden;
+    }
+
+    .hotel-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hotel-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      padding: 1rem;
+    }
+
+    .hotel-body h3,
+    .hotel-body p,
+    .hotel-body ul {
+      margin-top: 0;
+    }
+
+    .hotel-body ul {
+      margin-bottom: 0;
+    }
+
+    .hotel-body .button-link {
+      align-self: flex-start;
+      margin-top: auto;
+    }
+
+    .callout {
+      margin-top: 0.9rem;
+      padding: 1rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(20, 108, 67, 0.18);
+      background: linear-gradient(180deg, rgba(20, 108, 67, 0.05), rgba(20, 108, 67, 0.02));
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .callout h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .callout p {
+      margin: 0;
     }
 
     footer {
@@ -680,7 +698,7 @@
       }
 
       html.js .primary-nav[data-open="true"] .nav-list {
-        max-height: 28rem;
+        max-height: 32rem;
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
@@ -718,8 +736,9 @@
         padding: 1.25rem;
       }
 
-      .news-grid,
-      .grants-grid {
+      .travel-grid,
+      .transport-grid,
+      .hotel-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -742,21 +761,17 @@
         align-items: start;
       }
 
-      .about-grid {
-        grid-template-columns: 1.1fr 0.9fr;
+      .venue-grid {
+        grid-template-columns: 1.05fr 0.95fr;
       }
 
-      .events-grid {
+      .travel-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .grants-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
     @media (min-width: 70rem) {
-      .news-grid {
+      .hotel-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
@@ -822,7 +837,7 @@
   <header class="site-header">
     <div class="topbar">
       <div class="shell topbar-inner">
-        <a class="brand" href="#top">
+        <a class="brand" href="index.html#top">
           <img src="https://goblin-cost.eu/wp-content/uploads/2025/05/Goblin-LogoD-2048x548.png" alt="GOBLIN logo">
           <span>Hackathon on Metadata and Provenance for Knowledge Graphs</span>
         </a>
@@ -837,12 +852,11 @@
         </button>
         <nav id="primary-nav" class="primary-nav" aria-label="Primary" data-open="false">
           <ul class="nav-list">
-            <li><a href="#top">Call for participation</a></li>
-            <li><a href="#about">Overview</a></li>
-            <li><a href="#news">Important Dates</a></li>
-            <li><a href="#events">Format</a></li>
-            <li><a href="venue-accommodation.html">Venue &amp; Accommodation</a></li>
-            <li><a href="#grants">Submission &amp; Participation</a></li>
+            <li><a href="index.html#top">Call for participation</a></li>
+            <li><a href="#venue">Venue</a></li>
+            <li><a href="#travel">Travel</a></li>
+            <li><a href="#accommodation">Accommodation</a></li>
+            <li><a href="index.html#grants">Submission &amp; Participation</a></li>
           </ul>
         </nav>
       </div>
@@ -851,36 +865,34 @@
     <section id="top" class="hero" aria-labelledby="hero-title">
       <div class="shell hero-grid">
         <article class="hero-panel">
-          <p class="eyebrow">Call for participation</p>
-          <h1 id="hero-title">Hackathon on Metadata and Provenance for Knowledge Graphs</h1>
-          <p>This two-day event is a hands-on hackathon. We focus on active, collaborative work.</p>
-          <p>We invite researchers and practitioners to join a collaborative hackathon focused on improving the quality, context, and traceability of Knowledge Graphs (KGs). This event serves as a hands-on “kick-off” of Task 2.2 (Metadata and Provenance), exploring how new mechanisms like RDF 1.2 and nested triple terms (earlier RDF-star) can address existing limitations in metadata modeling.</p>
+          <p class="eyebrow">Venue &amp; travel information</p>
+          <h1 id="hero-title">Venue &amp; Accommodation in Oviedo</h1>
+          <p>The hackathon will be held at the School of Computer Engineering of the University of Oviedo, located at the Llamaquique Campus.</p>
+          <p>This page collects the practical travel notes, local transport options, and nearby accommodation recommendations for participants.</p>
           <div class="hero-actions">
-            <a class="button-link primary" href="https://docs.google.com/forms/d/e/1FAIpQLSexPbKq2R8rAS2THvEBipUlwFPVa8PmKdDtzTh7r1X4GU47Fw/viewform">Application Form</a>
+            <a class="button-link primary" href="#accommodation">View Hotels</a>
+            <a class="button-link secondary" href="index.html#top">Back to Hackathon Page</a>
           </div>
         </article>
 
-        <aside class="hero-meta" aria-label="Event details">
+        <aside class="hero-meta" aria-label="Venue summary">
           <div class="meta-list">
             <dl class="meta-row">
-              <dt>Title</dt>
-              <dd>Hackathon on Metadata and Provenance for Knowledge Graphs</dd>
+              <dt>Venue</dt>
+              <dd>School of Computer Engineering, University of Oviedo</dd>
             </dl>
             <dl class="meta-row">
-              <dt>Organized by</dt>
-              <dd>COST Action CA23147 (GOBLIN), Working Group 2, Task 2.2</dd>
+              <dt>Campus</dt>
+              <dd>Llamaquique Campus, Oviedo, Asturias</dd>
             </dl>
             <dl class="meta-row">
-              <dt>Location</dt>
-              <dd>School of Computer Science, Calle Valdés Salas, S/N, Oviedo, Spain</dd>
+              <dt>Address</dt>
+              <dd>Calle Valdés Salas, 11, 33007 Oviedo, Asturias</dd>
             </dl>
             <dl class="meta-row">
-              <dt>Dates</dt>
-              <dd>June 8-9, 2026</dd>
+              <dt>Closest airport</dt>
+              <dd>Asturias Airport (OVD), about 45 km from Oviedo</dd>
             </dl>
-          </div>
-          <div class="meta-inline">
-            <p>Google maps: <a href="https://maps.app.goo.gl/KhaEcdUxFRjgZdKd6">https://maps.app.goo.gl/KhaEcdUxFRjgZdKd6</a></p>
           </div>
         </aside>
       </div>
@@ -888,166 +900,194 @@
   </header>
 
   <main id="main">
-    <section id="about" class="section" aria-labelledby="about-heading">
+    <section id="venue" class="section" aria-labelledby="venue-heading">
       <div class="shell section-inner">
         <div class="section-header">
-          <h2 id="about-heading">Overview</h2>
+          <h2 id="venue-heading">Venue</h2>
+          <p class="lede">University of Oviedo, Llamaquique Campus</p>
         </div>
 
-        <div class="grid about-grid">
+        <div class="grid venue-grid">
           <article class="card prose">
-            <p>We invite researchers and practitioners to join a collaborative hackathon focused on improving the quality, context, and traceability of Knowledge Graphs (KGs). This event serves as a hands-on “kick-off” of Task 2.2 (Metadata and Provenance), exploring how new mechanisms like RDF 1.2 and nested triple terms (earlier RDF-star) can address existing limitations in metadata modeling.</p>
-            <p>While we welcome participants to propose their own topics related to RDF 1.2, we have identified two core challenges to be tackled:</p>
-            <p>Participants are encouraged to align their contributions with one of these two primary challenges, or to propose a novel challenge they are prepared to lead. Please note that, while we use these proposals to shape the event, the organizers will define the final hackathon topics.</p>
+            <p>The workshop will be held at the <a href="https://ingenieriainformatica.uniovi.es/"><strong>School of Computer Engineering</strong></a> (<em>Escuela de Ingeniería Informática</em>) of the University of Oviedo.</p>
+            <p>The venue is located at the Llamaquique Campus, within walking distance of several central hotels and close to local public transport.</p>
+            <p class="chip-row">
+              <span class="chip">Calle Valdés Salas, 11</span>
+              <span class="chip">33007 Oviedo</span>
+              <span class="chip">Asturias, Spain</span>
+            </p>
           </article>
 
-          <article class="card prose" aria-labelledby="themes-heading">
-            <h3 id="themes-heading">Hackathon Themes</h3>
-            <ul class="objective-list">
-              <li><strong>Wikibase &amp; RDF 1.2</strong>: Analyzing the expressiveness of the Wikibase data model (references, qualifiers, etc.) and how RDF 1.2 nested statements can address them.</li>
-              <li><strong>Best Practices &amp; Recommendations</strong>: Identifying and defining data modeling guidelines for using RDF 1.2 to capture metadata and provenance effectively.</li>
-              <li><strong>Introduction &amp; Kick-off</strong>: Aligning on goals and finalizing project teams.</li>
-              <li><strong>Collaborative Breakout Sessions</strong>: The core of the event, where participants work in small groups on technical challenges, modeling, or implementation.</li>
-            </ul>
-          </article>
-
-          <article class="card prose" aria-labelledby="organizers-heading">
-            <h3 id="organizers-heading">Main organizers</h3>
-            <ul>
-              <li>Katja Hose (TU Wien)</li>
-              <li>José Emilio Labra Gayo (Universidad de Oviedo)</li>
-              <li>Maxime Jakubowski (TU Wien)</li>
-            </ul>
-          </article>
-
-          <article class="card prose" aria-labelledby="committee-heading">
-            <h3 id="committee-heading">Organizing committee</h3>
-            <ul>
-              <li>Olaf Hartig (Linköping University)</li>
-              <li>Dominik Tomaszuk (University of Bialystok)</li>
-              <li>Ruben Taelman (Ghent University)</li>
-            </ul>
+          <article class="card address-card" aria-labelledby="address-heading">
+            <h3 id="address-heading">Address &amp; Map</h3>
+            <address>
+              <div class="address-line">
+                <p><strong>School of Computer Engineering</strong></p>
+                <p>Calle Valdés Salas, 11, 33007 Oviedo, Asturias</p>
+              </div>
+              <div class="address-line">
+                <p><a href="https://share.google/khBFhhwdyTCMPnDox">Open venue in Google Maps</a></p>
+              </div>
+            </address>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="news" class="section" aria-labelledby="news-heading">
+    <section id="travel" class="section" aria-labelledby="travel-heading">
       <div class="shell section-inner">
         <div class="section-header">
-          <h2 id="news-heading">Important Dates</h2>
-          <p class="lede">June 8-9, 2026</p>
+          <h2 id="travel-heading">How to Reach Oviedo</h2>
+          <p class="lede">Airport, train, and local transport options</p>
         </div>
 
-        <div class="grid news-grid">
+        <div class="grid transport-grid">
           <article class="card">
-            <h3>Submission Deadline</h3>
-            <p class="meta">March 29, 2026</p>
-            <p><strong>Submission Deadline</strong>: March 29, 2026</p>
-            <p>Due to the collaborative nature of the event and funding constraints, participation is limited. To apply, please complete our Application Form by March 29, 2026.</p>
-            <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSexPbKq2R8rAS2THvEBipUlwFPVa8PmKdDtzTh7r1X4GU47Fw/viewform">Application Form</a></p>
-          </article>
-
-          <article class="card">
-            <h3>Notification of Acceptance</h3>
-            <p class="meta">April 12, 2026</p>
-            <p><strong>Notification of Acceptance</strong>: April 12, 2026</p>
-            <p><a href="https://dmki-tuwien.github.io/goblin-hackathon/">Website</a></p>
-          </article>
-
-          <article class="card">
-            <h3>Event Dates</h3>
-            <p class="meta">June 8-9, 2026</p>
-            <p><strong>Event Dates</strong>: June 8-9, 2026</p>
-            <p>Hackathon on Metadata and Provenance for Knowledge Graphs</p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section id="events" class="section" aria-labelledby="events-heading">
-      <div class="shell section-inner">
-        <div class="section-header">
-          <h2 id="events-heading">Format</h2>
-          <p class="lede">School of Computer Science, Calle Valdés Salas, S/N, Oviedo, Spain</p>
-        </div>
-
-        <p class="lede">This two-day event is a hands-on hackathon. We focus on active, collaborative work. The general structure will include:</p>
-
-        <div class="grid events-grid" style="margin-top: 0.9rem;">
-          <article class="card">
-            <h3>Introduction &amp; Kick-off</h3>
-            <p class="chip-row">
-              <span class="chip">June 8-9, 2026</span>
-              <span class="chip">School of Computer Science, Calle Valdés Salas, S/N, Oviedo, Spain</span>
-            </p>
-            <p>Aligning on goals and finalizing project teams.</p>
-          </article>
-
-          <article class="card">
-            <h3>Collaborative Breakout Sessions</h3>
-            <p class="chip-row">
-              <span class="chip">June 8-9, 2026</span>
-              <span class="chip">School of Computer Science, Calle Valdés Salas, S/N, Oviedo, Spain</span>
-            </p>
-            <p>The core of the event, where participants work in small groups on technical challenges, modeling, or implementation.</p>
-          </article>
-
-          <article class="card">
-            <h3>Final Presentations &amp; Consolidation</h3>
-            <p class="chip-row">
-              <span class="chip">June 8-9, 2026</span>
-              <span class="chip">School of Computer Science, Calle Valdés Salas, S/N, Oviedo, Spain</span>
-            </p>
-            <p>Sharing results and drafting a common report on the findings.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="grants" class="section" aria-labelledby="grants-heading">
-      <div class="shell section-inner">
-        <div class="section-header">
-          <h2 id="grants-heading">Submission &amp; Participation</h2>
-          <p class="lede">March 29, 2026</p>
-        </div>
-
-        <div class="grid grants-grid">
-          <article class="card">
-            <h3>Motivation and Expertise</h3>
-            <p>Motivation for joining the hackathon and a description of relevant papers, tools, or projects that you have contributed to.</p>
-          </article>
-
-          <article class="card">
-            <h3>Position Paper</h3>
-            <p>Proposing a concrete challenge to be addressed at the hackathon.</p>
+            <h3>By Plane</h3>
+            <p>The closest airport is <strong>Asturias Airport (OVD)</strong>, located about 45 km from Oviedo.</p>
             <ul>
-              <li>Max. 2 pages in PDF</li>
-              <li>Can have multiple co-authors</li>
-              <li>Every co-author must submit the application form</li>
+              <li><strong>Shuttle Bus:</strong> The <a href="https://www.alsa.es/">ALSA</a> bus service runs every 30–60 minutes from the airport to the <a href="https://maps.app.goo.gl/GaeB5n9kUraiq1d58">Oviedo Bus Station</a>. The journey takes approximately 45 minutes and costs around €9.</li>
+              <li><strong>Taxi:</strong> Available at the airport arrivals terminal. The fare to Oviedo city center is approximately €60–€75.</li>
             </ul>
           </article>
 
           <article class="card">
-            <h3>Application Form</h3>
-            <p>Due to the collaborative nature of the event and funding constraints, participation is limited. To apply, please complete our Application Form by March 29, 2026, including:</p>
-            <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSexPbKq2R8rAS2THvEBipUlwFPVa8PmKdDtzTh7r1X4GU47Fw/viewform">Application Form</a></p>
+            <h3>By Train from Madrid</h3>
+            <p>Oviedo is connected via the Spanish high-speed rail network (<strong>AVE</strong>).</p>
+            <ul>
+              <li><strong>Main Station:</strong> Oviedo Railway Station (Uría Station).</li>
+              <li><strong>Local Train:</strong> If your hotel is near the venue, you can transfer to a local train and stop at the <a href="https://share.google/oF3fqF8LI7W53VCbW"><strong>Estación de Llamaquique</strong></a>, which is only an 8-minute walk from the School.</li>
+            </ul>
           </article>
 
           <article class="card">
-            <h3>Every co-author must submit the application form</h3>
-            <p>Every co-author must submit the application form</p>
+            <h3>Local Transport in Oviedo</h3>
+            <p>Oviedo is a very walkable city. If you need public transport, city bus line 11 stops just 2 minutes from the venue at González Besada street.</p>
+            <p>Lines 2, 9, and 10 stop at Plaza de la Gesta, about a 5-minute walk from the School.</p>
           </article>
         </div>
 
         <div class="callout">
-          <h3>Funding &amp; Reimbursement</h3>
-          <p>A limited number of participants from Europe (approximately 13) can be reimbursed for travel and daily allowance via the COST Action. Please indicate in the form if you would still attend if reimbursement is not available.</p>
+          <h3>Alternative Airports</h3>
+          <p>Madrid-Barajas, Santander, and Bilbao are practical alternatives when Asturias Airport is not convenient.</p>
+        </div>
+
+        <div class="grid travel-grid" style="margin-top: 0.9rem;">
+          <article class="card">
+            <h3>Madrid-Barajas Airport (MAD)</h3>
+            <p class="meta">Most common entry point for international travelers</p>
+            <ul>
+              <li><strong>By Train:</strong> Take the <a href="https://www.renfe.com/es/en/suburban/suburban-madrid">Cercanías train</a> from Terminal 4 to Madrid-Chamartín Station, then take the high-speed AVE or Alvia train to Oviedo. The journey from Chamartín takes approximately 3h 15m to 3h 45m.</li>
+              <li><strong>By Bus:</strong> <a href="https://www.alsa.com/en/web/bus/home">ALSA</a> operates direct buses from Madrid Airport Terminal 4 to Oviedo. The journey takes about 5 to 6 hours.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Santander Airport (SDR)</h3>
+            <p class="meta">Popular for low-cost carrier connections</p>
+            <ul>
+              <li><strong>By Bus:</strong> Direct <a href="https://www.alsa.com/en/web/bus/home">ALSA</a> service from Santander Airport to Oviedo Bus Station. The trip takes roughly 2h 30m to 3h.</li>
+              <li><strong>By Car:</strong> Straightforward 2-hour drive along the A-8 coastal highway.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Bilbao Airport (BIO)</h3>
+            <p class="meta">Wider range of international connections</p>
+            <ul>
+              <li><strong>By Bus:</strong> Take the shuttle bus from the airport to Bilbao Intermodal. From there, several direct <a href="https://www.alsa.com/en/web/bus/home">ALSA</a> buses run to Oviedo daily.</li>
+              <li><strong>Total travel time:</strong> About 4h 30m to 5h.</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
+    <section id="accommodation" class="section" aria-labelledby="accommodation-heading">
+      <div class="shell section-inner">
+        <div class="section-header">
+          <h2 id="accommodation-heading">Accommodation Recommendations</h2>
+          <p class="lede">Nearby options for workshop participants</p>
+        </div>
+
+        <div class="grid hotel-grid">
+          <article class="card hotel-card">
+            <div class="hotel-media">
+              <img src="assets/hotel-zentral-ramiro-i.png" alt="Hotel Zentral Ramiro I exterior">
+            </div>
+            <div class="hotel-body">
+              <h3><a href="https://zentralramiroi.oviedoshotel.com/es/">Hotel Zentral Ramiro I</a></h3>
+              <p>This is one of the most reliable options in Oviedo, specifically geared toward business travel, conferences, and academic events.</p>
+              <ul>
+                <li><strong>Vibe:</strong> Professional, functional, excellent business infrastructure, and very friendly staff.</li>
+                <li><strong>Distance:</strong> Approximately a 5–8 minute walk to the School of Computer Science Engineering.</li>
+              </ul>
+              <a class="button-link secondary" href="https://zentralramiroi.oviedoshotel.com/es/">Official Website</a>
+            </div>
+          </article>
+
+          <article class="card hotel-card">
+            <div class="hotel-media">
+              <img src="assets/eurostars-palacio-de-cristal.jpg" alt="Eurostars Palacio de Cristal building">
+            </div>
+            <div class="hotel-body">
+              <h3><a href="https://www.eurostarshotels.co.uk/eurostars-palacio-de-cristal.html">Eurostars Palacio de Cristal</a></h3>
+              <p>One of Oviedo's most iconic buildings, designed by Santiago Calatrava. It is located within the Llamaquique area, making it one of the closest high-end options to the workshop venue.</p>
+              <ul>
+                <li><strong>Vibe:</strong> Modern, architectural landmark, quiet area.</li>
+                <li><strong>Distance:</strong> About a 10-minute walk to the School.</li>
+              </ul>
+              <a class="button-link secondary" href="https://www.eurostarshotels.co.uk/eurostars-palacio-de-cristal.html">Official Website</a>
+            </div>
+          </article>
+
+          <article class="card hotel-card">
+            <div class="hotel-media">
+              <img src="assets/hotel-nature-oviedo.jpg" alt="Hotel Nature Oviedo room">
+            </div>
+            <div class="hotel-body">
+              <h3><a href="https://www.hotelnatureoviedo.com/">Hotel Nature Oviedo</a></h3>
+              <p>A polished, nature-inspired hotel located near the University campus area. It offers a great balance of comfort and proximity to the academic buildings.</p>
+              <ul>
+                <li><strong>Vibe:</strong> Relaxed, organic design, well-rated for business travel.</li>
+                <li><strong>Distance:</strong> About a 12-minute walk to the School.</li>
+              </ul>
+              <a class="button-link secondary" href="https://www.hotelnatureoviedo.com/">Official Website</a>
+            </div>
+          </article>
+
+          <article class="card hotel-card">
+            <div class="hotel-media">
+              <img src="assets/ac-hotel-oviedo-forum.jpg" alt="AC Hotel Oviedo Forum exterior">
+            </div>
+            <div class="hotel-body">
+              <h3><a href="https://www.marriott.com/es/hotels/ovdfo-ac-hotel-oviedo-forum/overview/">AC Hotel Oviedo Forum</a></h3>
+              <p>This hotel is located right next to the main train and bus stations, making it a good option if easy arrival and departure are the priority.</p>
+              <ul>
+                <li><strong>Vibe:</strong> Efficient, professional, close to the main shopping street, Calle Uría.</li>
+                <li><strong>Distance:</strong> About a 20-minute walk or a 5-minute taxi/local train ride to the venue.</li>
+              </ul>
+              <a class="button-link secondary" href="https://www.marriott.com/es/hotels/ovdfo-ac-hotel-oviedo-forum/overview/">Official Website</a>
+            </div>
+          </article>
+
+          <article class="card hotel-card">
+            <div class="hotel-media">
+              <img src="assets/hotel-fruela.jpg" alt="Hotel Fruela room">
+            </div>
+            <div class="hotel-body">
+              <h3><a href="https://www.hotelfruela.com/">Hotel Fruela</a></h3>
+              <p>Located in the heart of the city, near the Cathedral and the historic Old Town. Ideal for those who want to explore Oviedo's famous Cider Boulevard in the evenings.</p>
+              <ul>
+                <li><strong>Vibe:</strong> Classic Oviedo, central, close to restaurants and historical sites.</li>
+                <li><strong>Distance:</strong> About a 15-minute walk to the School.</li>
+              </ul>
+              <a class="button-link secondary" href="https://www.hotelfruela.com/">Official Website</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -1055,9 +1095,8 @@
       <div class="footer-card">
         <p><strong>Organized by</strong>: COST Action CA23147 (GOBLIN), Working Group 2, Task 2.2</p>
         <ul class="footer-links">
-          <li><a href="https://dmki-tuwien.github.io/goblin-hackathon/">Website</a></li>
-          <li><a href="https://maps.app.goo.gl/KhaEcdUxFRjgZdKd6">Google maps</a></li>
-          <li><a href="venue-accommodation.html">Venue &amp; Accommodation</a></li>
+          <li><a href="index.html">Hackathon home</a></li>
+          <li><a href="https://share.google/khBFhhwdyTCMPnDox">Venue Google Maps</a></li>
           <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSexPbKq2R8rAS2THvEBipUlwFPVa8PmKdDtzTh7r1X4GU47Fw/viewform">Application Form</a></li>
         </ul>
         <p><strong>Event Dates</strong>: June 8-9, 2026</p>
