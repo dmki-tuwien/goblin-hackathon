@@ -226,7 +226,8 @@
         transform 160ms ease;
     }
 
-    .nav-list a:hover {
+    .nav-list a:hover,
+    .nav-list a[aria-current="page"] {
       background: var(--surface);
       border-color: var(--line);
       color: var(--text);
@@ -837,10 +838,11 @@
         </button>
         <nav id="primary-nav" class="primary-nav" aria-label="Primary" data-open="false">
           <ul class="nav-list">
-            <li><a href="#top">Call for participation</a></li>
+            <li><a href="#top" aria-current="page">Call for participation</a></li>
             <li><a href="#about">Overview</a></li>
             <li><a href="#news">Important Dates</a></li>
             <li><a href="#events">Format</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
             <li><a href="venue-accommodation.html">Venue &amp; Accommodation</a></li>
             <li><a href="#grants">Submission &amp; Participation</a></li>
           </ul>
@@ -1057,6 +1059,7 @@
         <ul class="footer-links">
           <li><a href="https://dmki-tuwien.github.io/goblin-hackathon/">Website</a></li>
           <li><a href="https://maps.app.goo.gl/KhaEcdUxFRjgZdKd6">Google maps</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
           <li><a href="venue-accommodation.html">Venue &amp; Accommodation</a></li>
           <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSexPbKq2R8rAS2THvEBipUlwFPVa8PmKdDtzTh7r1X4GU47Fw/viewform">Application Form</a></li>
         </ul>
